@@ -46,13 +46,49 @@ export const Recipes: CollectionConfig = {
       required: true,
     },
     {
-      name: "link",
-      type: "text",
-      required: false,
+      name: "ingredients",
+      type: "array",
+      fields: [
+        {
+          name: "ingredients",
+          type: "relationship",
+          relationTo: "ingredients",
+          hasMany: false,
+        },
+        {
+          name: "amount",
+          type: "number",
+          required: true,
+          defaultValue: 1,
+        },
+        {
+          name: "unit",
+          type: "radio",
+          options: ["piece", "g"],
+          required: true,
+          defaultValue: "pc",
+        },
+      ],
     },
     {
-      name: "linktitle",
-      type: "text",
+      name: "link",
+      type: "group",
+      fields: [
+        {
+          name: "href",
+          type: "text",
+          required: false,
+        },
+        {
+          name: "text",
+          type: "text",
+          required: false,
+        },
+      ],
+    },
+    {
+      name: "content",
+      type: "richText",
       required: false,
     },
     // {
@@ -70,6 +106,18 @@ export const Recipes: CollectionConfig = {
       admin: {
         position: "sidebar",
       },
+    },
+    {
+      name: "category",
+      type: "relationship",
+      relationTo: "categories",
+      hasMany: false,
+    },
+    {
+      name: "tags",
+      type: "relationship",
+      relationTo: "tags",
+      hasMany: true,
     },
     {
       name: "relatedRecipes",
