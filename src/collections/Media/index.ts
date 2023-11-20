@@ -1,5 +1,7 @@
 import path from "path";
 import { CollectionConfig } from "payload/types";
+import { getUrl } from "../../cloud";
+import { renameMediaFile } from "./hooks";
 
 export const Media: CollectionConfig = {
   slug: "media",
@@ -9,6 +11,7 @@ export const Media: CollectionConfig = {
   },
   upload: {
     staticDir: path.resolve(__dirname, "../../../media"),
+    staticURL: getUrl(),
     crop: true,
     focalPoint: true,
     mimeTypes: ["image/*"],
@@ -17,6 +20,18 @@ export const Media: CollectionConfig = {
         name: "thumbnail",
         height: 64,
         width: 64,
+        position: "centre",
+      },
+      {
+        name: "small",
+        height: 300,
+        width: 300,
+        position: "centre",
+      },
+      {
+        name: "medium",
+        height: 600,
+        width: 600,
         position: "centre",
       },
     ],
@@ -43,4 +58,7 @@ export const Media: CollectionConfig = {
       required: false,
     },
   ],
+  hooks: {
+    beforeOperation: [renameMediaFile],
+  },
 };
