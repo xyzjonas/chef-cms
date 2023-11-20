@@ -7,9 +7,6 @@ export const Categories: CollectionConfig = {
     useAsTitle: "title",
     defaultColumns: ["id", "title"],
   },
-  upload: {
-    staticDir: path.resolve(__dirname, "../../../media"),
-  },
   access: {
     read: () => true,
   },
@@ -18,6 +15,11 @@ export const Categories: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+    },
+    {
+      name: "image",
+      type: "upload",
+      relationTo: "media",
     },
   ],
 };

@@ -41,9 +41,26 @@ export const Recipes: CollectionConfig = {
       required: true,
     },
     {
+      name: "image",
+      type: "upload",
+      relationTo: "media",
+    },
+    {
       name: "subtitle",
       type: "text",
-      required: true,
+      required: false,
+    },
+    {
+      name: "category",
+      type: "relationship",
+      relationTo: "categories",
+      hasMany: false,
+    },
+    {
+      name: "tags",
+      type: "relationship",
+      relationTo: "tags",
+      hasMany: true,
     },
     {
       name: "ingredients",
@@ -106,18 +123,6 @@ export const Recipes: CollectionConfig = {
       admin: {
         position: "sidebar",
       },
-    },
-    {
-      name: "category",
-      type: "relationship",
-      relationTo: "categories",
-      hasMany: false,
-    },
-    {
-      name: "tags",
-      type: "relationship",
-      relationTo: "tags",
-      hasMany: true,
     },
     {
       name: "relatedRecipes",

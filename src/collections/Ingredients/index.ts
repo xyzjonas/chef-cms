@@ -20,9 +20,6 @@ export const Ingredients: CollectionConfig = {
     // afterChange: [revalidateProject],
     // afterRead: [populateArchiveBlock],
   },
-  versions: {
-    drafts: true,
-  },
   access: {
     read: adminsOrPublished,
     update: admins,
