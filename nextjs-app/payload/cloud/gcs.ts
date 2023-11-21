@@ -1,7 +1,7 @@
 import { gcsAdapter } from "@payloadcms/plugin-cloud-storage/gcs";
 
 const credentials: string = process.env.GCS_CREDENTIALS ?? "{}";
-const bucket: string = process.env.GCS_BUCKET ?? "bucket";
+const bucket: string = process.env.GCS_BUCKET ?? "missing-GCS_BUCKET-variable";
 
 export const adapter = gcsAdapter({
   options: {

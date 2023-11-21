@@ -10,8 +10,8 @@ export interface Config {
   collections: {
     users: User;
     recipes: Recipe;
-    'payload-preferences': PayloadPreference;
-    'payload-migrations': PayloadMigration;
+    "payload-preferences": PayloadPreference;
+    "payload-migrations": PayloadMigration;
   };
   globals: {};
 }
@@ -27,6 +27,7 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password: string | null;
+  roles: ("admin" | "user")[];
 }
 export interface Recipe {
   id: number;
@@ -39,12 +40,12 @@ export interface Recipe {
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ('draft' | 'published') | null;
+  _status?: ("draft" | "published") | null;
 }
 export interface PayloadPreference {
   id: number;
   user: {
-    relationTo: 'users';
+    relationTo: "users";
     value: number | User;
   };
   key?: string | null;
@@ -68,7 +69,6 @@ export interface PayloadMigration {
   createdAt: string;
 }
 
-
-declare module 'payload' {
+declare module "payload" {
   export interface GeneratedTypes extends Config {}
 }

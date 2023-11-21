@@ -36,7 +36,7 @@ export default buildConfig({
         resolve: {
           ...config.resolve,
           alias: {
-            ...config.resolve.alias,
+            ...(config.resolve?.alias ?? {}),
             [fullFilePath]: mockModulePath,
           },
         },
