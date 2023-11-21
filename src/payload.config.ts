@@ -1,6 +1,6 @@
 import path from "path";
 
-import { payloadCloud } from "@payloadcms/plugin-cloud";
+// import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
@@ -52,7 +52,7 @@ export default buildConfig({
     schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
   plugins: [
-    payloadCloud(),
+    // payloadCloud(),
     cloudStorage({
       enabled: process.env.LOCAL_STORAGE === "false",
       collections: {
