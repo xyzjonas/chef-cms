@@ -4,7 +4,9 @@ import { admins } from "../../access/admins";
 
 export const Users: CollectionConfig = {
   slug: "users",
-  auth: true,
+  auth: {
+    useAPIKey: true,
+  },
   admin: {
     useAsTitle: "email",
   },
