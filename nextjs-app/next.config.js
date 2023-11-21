@@ -8,6 +8,7 @@ const { withPayload } = require("@payloadcms/next-payload");
 module.exports = withPayload(
   {
     // your Next config here
+    outputFileTracing: false,
   },
   {
     // The second argument to `withPayload`
