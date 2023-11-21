@@ -1,8 +1,11 @@
 import { gcsAdapter } from "@payloadcms/plugin-cloud-storage/gcs";
 
+const credentials: string = process.env.GCS_CREDENTIALS ?? "{}";
+const bucket: string = process.env.GCS_BUCKET ?? "bucket";
+
 export const adapter = gcsAdapter({
   options: {
-    credentials: JSON.parse(process.env.GCS_CREDENTIALS || "{}"), // this env variable will have stringify version of your credentials.json file
+    credentials: JSON.parse(credentials), // this env variable will have stringify version of your credentials.json file
   },
-  bucket: process.env.GCS_BUCKET,
+  bucket: bucket,
 });
