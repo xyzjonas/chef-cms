@@ -35,37 +35,37 @@ export const Ingredients: CollectionConfig = {
     {
       name: "energy",
       type: "number",
-      required: true,
+      required: false,
       defaultValue: 0,
     },
     {
       name: "fats",
       type: "number",
-      required: true,
+      required: false,
       defaultValue: 0,
     },
     {
       name: "carbs",
       type: "number",
-      required: true,
+      required: false,
       defaultValue: 0,
     },
     {
       name: "proteins",
       type: "number",
-      required: true,
+      required: false,
       defaultValue: 0,
     },
     {
       name: "fibres",
       type: "number",
-      required: true,
+      required: false,
       defaultValue: 0,
     },
     {
       name: "salt",
       type: "number",
-      required: true,
+      required: false,
       defaultValue: 0,
     },
     {
